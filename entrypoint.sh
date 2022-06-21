@@ -4,7 +4,6 @@ set -e
 
 if [ -z "${HONEYPOT_SSH_KEY_FILE}" ]
 then
-    mkdir -p /data
     HONEYPOT_SSH_KEY_FILE="/data/ssh_honeypot.rsa"
 fi
 
@@ -24,6 +23,8 @@ echo "CMD=${CMD}"
 
 if [ ! -f ${HONEYPOT_SSH_KEY_FILE} ]
 then
+    KEY_FILE_DIR=`dirname "$(realpath ${HONEYPOT_SSH_KEY_FILE})"`
+    mkdir -p ${KEY_FILE_DIR}
     ssh-keygen -t rsa -f ${HONEYPOT_SSH_KEY_FILE} -q -N ""
 fi
 

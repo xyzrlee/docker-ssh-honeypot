@@ -28,7 +28,7 @@ COPY --from=builder /repo/bin/ssh-honeypot /usr/local/bin/ssh-honeypot
 COPY entrypoint.sh /entrypoint.sh
 
 ENV HONEYPOT_SSH_KEY_FILE=/data/ssh-honeypot.rsa
-ENV HONEYPOT_PORT=22222
+ENV HONEYPOT_PORT=22
 
 RUN set -ex \
   && apk add --update --no-cache \
