@@ -23,7 +23,7 @@ echo "CMD=${CMD}"
 
 if [ ! -f ${HONEYPOT_SSH_KEY_FILE} ]
 then
-    KEY_FILE_DIR=`dirname "$(realpath ${HONEYPOT_SSH_KEY_FILE})"`
+    KEY_FILE_DIR=`dirname "${HONEYPOT_SSH_KEY_FILE}"`
     mkdir -p ${KEY_FILE_DIR}
     ssh-keygen -t rsa -f ${HONEYPOT_SSH_KEY_FILE} -q -N ""
 fi
