@@ -12,6 +12,8 @@ then
     HONEYPOT_PORT=22
 fi
 
+ls -l ${HONEYPOT_SSH_KEY_FILE}
+
 CMD="-p ${HONEYPOT_PORT} -f ${HONEYPOT_SSH_KEY_FILE}"
 
 if [ -n "${HONEYPOT_JSON_FILE}" ]
