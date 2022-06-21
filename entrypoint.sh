@@ -1,5 +1,8 @@
 #!/bin/sh
 
+CMD="$@"
+echo "CMD=${CMD}"
+
 set -e
 
 mkdir -p /data /logs
@@ -11,4 +14,4 @@ fi
 
 ls -l ${HONEYPOT_SSH_KEY_FILE}
 
-ssh-honeypot $@
+ssh-honeypot ${CMD}
