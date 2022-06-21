@@ -29,7 +29,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 ENV HONEYPOT_SSH_KEY_FILE=/data/ssh-honeypot.rsa
 ENV HONEYPOT_PORT=22222
-ENV HONEYPOT_USER=nobody
 
 RUN set -ex \
   && apk add --update --no-cache \
@@ -39,4 +38,5 @@ RUN set -ex \
     openssh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
+CMD "-p ${HONEYPOT_PORT} -r ${HONEYPOT_SSH_KEY_FILE}"
 
