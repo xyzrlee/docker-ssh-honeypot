@@ -15,6 +15,7 @@ RUN set -ex \
     openssh \
     json-c-dev \
     libssh2-dev \
+    libpcap-dev \
   && git clone --depth=1 --single-branch https://github.com/droberson/ssh-honeypot.git /repo \
   && cd /repo \
   && make
@@ -30,9 +31,9 @@ RUN set -ex \
   && apk add --update --no-cache \
     libssh-dev \
     json-c-dev \
+    libpcap-dev \
     openssh \
-    sudo \
-  && ssh-honeypot -h
+    sudo 
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
