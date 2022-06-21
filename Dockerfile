@@ -38,5 +38,5 @@ RUN set -ex \
     openssh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-CMD ["-p", "${HONEYPOT_PORT}", "-r", "${HONEYPOT_SSH_KEY_FILE}"]
+CMD ["-p", "$HONEYPOT_PORT", "-r", "$HONEYPOT_SSH_KEY_FILE"]
 

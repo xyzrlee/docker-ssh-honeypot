@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CMD="$@"
+CMD=`eval echo "$@"`
 echo "CMD=${CMD}"
 
 set -e
