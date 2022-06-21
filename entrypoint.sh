@@ -12,16 +12,6 @@ then
     HONEYPOT_PORT=22
 fi
 
-
-CMD="-p ${HONEYPOT_PORT} -f ${HONEYPOT_SSH_KEY_FILE}"
-
-if [ -n "${HONEYPOT_JSON_FILE}" ]
-then
-    CMD="${CMD} -j ${HONEYPOT_JSON_FILE}"
-fi
-
-echo "CMD=${CMD}"
-
 if [ ! -f ${HONEYPOT_SSH_KEY_FILE} ]
 then
     KEY_FILE_DIR=`dirname "${HONEYPOT_SSH_KEY_FILE}"`
@@ -30,6 +20,15 @@ then
 fi
 
 ls -l ${HONEYPOT_SSH_KEY_FILE}
+
+CMD="-p ${HONEYPOT_PORT} -r ${HONEYPOT_SSH_KEY_FILE}"
+
+if [ -n "${HONEYPOT_JSON_FILE}" ]
+then
+    CMD="${CMD} -j ${HONEYPOT_JSON_FILE}"
+fi
+
+echo "CMD=${CMD}"
 
 ssh-honeypot ${CMD}
 
