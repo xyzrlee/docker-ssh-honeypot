@@ -12,7 +12,6 @@ then
     HONEYPOT_PORT=22
 fi
 
-ls -l ${HONEYPOT_SSH_KEY_FILE}
 
 CMD="-p ${HONEYPOT_PORT} -f ${HONEYPOT_SSH_KEY_FILE}"
 
@@ -30,6 +29,7 @@ then
     ssh-keygen -t rsa -f ${HONEYPOT_SSH_KEY_FILE} -q -N ""
 fi
 
+ls -l ${HONEYPOT_SSH_KEY_FILE}
 
 ssh-honeypot ${CMD}
 
